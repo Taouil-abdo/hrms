@@ -11,4 +11,14 @@ class Joob extends Model
     use HasFactory ;
 
     protected $fillable = ['title', 'description'];
+
+    public function departement()
+    {
+        return $this->belongsTo(Departement::class);
+    }
+
+    public function users()
+    {
+        return $this->hasMany(User::class);
+    }
 }

@@ -5,23 +5,25 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Formation extends Model
+class Conge extends Model
 {
-    /** @use HasFactory<\Database\Factories\FormationFactory> */
+    /** @use HasFactory<\Database\Factories\CongerFactory> */
     use HasFactory;
 
     protected $fillable = [
-        'title',
-        'description',
-        'location',
-        'certificate',
+        'user_id',
         'start_date',
         'end_date',
-        'user_id',
+        // 'Days',
+        'type',
+        'manager_approval',
+        'hr_approval'
     ];
 
     public function user()
     {
-        return $this->belongsTo(User::class, 'user_id');
+        return $this->belongsTo(User::class,'user_id');
     }
+
+    
 }

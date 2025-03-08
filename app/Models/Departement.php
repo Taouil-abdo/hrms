@@ -12,12 +12,17 @@ class Departement extends Model
     protected $fillable = [
         'name',
         'description',
-
+        'job_id',
     ];
+
+    public function joobs()
+    {
+        return $this->hasMany(Joob::class);
+    }
     
-    // public function users()
-    // {
-    //     return $this->hasMany(Users::class);
-    // }
+    public function users()
+    {
+        return $this->hasMany(Users::class);
+    }
     
 }

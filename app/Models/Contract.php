@@ -16,9 +16,8 @@ class Contract extends Model
          'endDate',
     ];
 
-    // public function users()
-    // {
-    //     return $this->hasMany(Users::class);
-    // }
-
+    public function users()
+    {
+        return $this->hasMany(Users::class);
+    }
 }

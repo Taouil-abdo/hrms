@@ -48,7 +48,7 @@ class Contracts extends Component
         $this->endDate = $contract->endDate;
         $this->isEditing = true;
 
-        return view('livewire.contract.update-contract')->layout('layouts.app');
+        return view('livewire.contract.contract')->layout('layouts.app');
     }
 
     public function update()

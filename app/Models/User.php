@@ -8,6 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Spatie\Permission\Traits\HasRoles;
 
+
 class User extends Authenticatable
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
@@ -22,6 +23,18 @@ class User extends Authenticatable
         'fullname',
         'email',
         'password',
+        'image',
+        'phone',
+        'grade',
+        'birthday',
+        'address',
+        'recruitment_date',
+        'salary',
+        'status',
+        'leaveBalance',
+        'department_id',
+        'role_id',
+        'contract_id',
     ];
 
     /**
@@ -46,4 +59,50 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function department()
+    {
+        return $this->belongsTo(Department::class, 'department_id');
+    }
+
+    public function contract()
+    {
+        return $this->belongsTo(Contract::class, 'contract_id');
+    }
+
+    public function formation()
+    {
+        return $this->belongsTo(Formation::class, 'formation_id');
+    }
+
+    public function role()
+    {
+        return $this->belongsTo(Role::class, 'role_id');
+    }
+
+    public function promotions()
+    {
+        return $this->hasMany(Promotion::class);
+    }
+
+    public function Conges()
+    {
+    return $this->hasMany(Conge::class);
+    }
+
+    public function recoveryDays()
+    {
+        return $this->hasMany(RecoveryDay::class);
+    }
+
+
+    // protected static function booted()
+    // {
+    //     static::creating(function ($user) {
+    //         if ($user->password) {
+    //             $user->password = bcrypt($user->password);
+    //         }
+    //     });
+    // }
+    
 }

@@ -13,7 +13,8 @@ class PromotionController extends Controller
      */
     public function index()
     {
-        //
+        $users = User::All();
+        return view('promotion.promotion', compact('users'));
     }
 
     /**
@@ -37,7 +38,7 @@ class PromotionController extends Controller
      */
     public function show(promotion $promotion)
     {
-        //
+        return view('promotion.promotion', compact('promotion'));
     }
 
     /**

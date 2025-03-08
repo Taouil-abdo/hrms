@@ -9,10 +9,17 @@
     @endif
 
     {{-- contract Form --}}
-    <form wire:submit.prevent="{{ $isEditing ? 'update' : 'store' }}">
+    <form wire:submit.prevent="{{ $isEditing ? 'update' : 'store' }}" class="">
         <div class="mb-2">
             <label class="block text-sm font-medium">contract name</label>
-            <input type="text" wire:model="typeContract" name="typeContract" class="w-full border rounded p-2">
+            <!-- <input type="text" wire:model="typeContract" name="typeContract" class="w-full border rounded p-2"> -->
+            <select wire:model="typeContract" name="typeContract" id="typeContract" class="w-full border rounded p-2">
+                <option value="">Select contract type</option>
+                <option value="CDI">CDI</option>
+                <option value="CDD">CDD</option>
+                <option value="STAGE">STAGE</option>
+                <option value="FREELANCE">FREELANCE</option>
+            </select>
             @error('typeContract') <span class="text-red-500 text-sm">{{ $message }}</span> @enderror
         </div>
         <div class="mb-2">
@@ -50,7 +57,7 @@
     <input type="text" wire:model="search" placeholder="Search contracts..." class="border p-2 rounded mb-4">
 
     <table id="contractsTable" class="min-w-full bg-white text-center border rounded-lg shadow-md">
-        <thead class="bg-gray-800 text-white">
+        <thead class="bg-gray-200 border-gray-200 border">
             <tr>
                 <th class="py-2 px-4">typeContract</th>
                 <th class="py-2 px-4">document</th>

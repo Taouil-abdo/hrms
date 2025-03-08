@@ -5,23 +5,24 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Formation extends Model
+class Career extends Model
 {
-    /** @use HasFactory<\Database\Factories\FormationFactory> */
+    /** @use HasFactory<\Database\Factories\PromotionFactory> */
     use HasFactory;
 
     protected $fillable = [
-        'title',
-        'description',
-        'location',
-        'certificate',
-        'start_date',
-        'end_date',
         'user_id',
+        'recruitment_date',
+        'salary',
+        'departement',
+        'role',
+        'contract',
     ];
 
     public function user()
     {
         return $this->belongsTo(User::class, 'user_id');
     }
+    
+
 }

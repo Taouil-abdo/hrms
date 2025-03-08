@@ -13,16 +13,18 @@ return new class extends Migration
     {
         Schema::create('formations', function (Blueprint $table) {
             $table->id();
-            $table->string('name'); // Project name
-            $table->string('title'); // Project title
-            $table->text('skills'); // Skills required for the project
-            $table->enum('location', ['online', 'offline']); // Location (online or offline)
-            $table->string('certificate')->nullable(); // Certificate (nullable)
-            $table->date('start_date'); // Start date of the project
-            $table->date('end_date'); // End date of the project
-            $table->unsignedBigInteger('user_id'); // Foreign key column for the user
-            $table->timestamps(); // Created at and updated at columns
+            $table->string('name'); 
+            $table->string('title'); 
+            $table->text('skills'); 
+            $table->enum('location', ['online', 'offline']); 
+            $table->string('certificate')->nullable(); 
+            $table->date('start_date'); 
+            $table->date('end_date'); 
+            $table->unsignedBigInteger('user_id'); 
+            $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->softDeletes();
+
         });
     }
 

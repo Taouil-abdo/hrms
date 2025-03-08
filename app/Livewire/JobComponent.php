@@ -20,13 +20,11 @@ class JobComponent extends Component
 
 
     public function render()
-{
+    {
     $this->jobs = Joob::all();  
 
     return view('livewire.job.joob')->layout('layouts.app');  
-}
-
-
+    }
 
     public function create()
     {

@@ -40,7 +40,7 @@
     <input type="text" wire:model="search" placeholder="Search departements..." class="border p-2 rounded mb-4">
 
     <table id="departementsTable" class="min-w-full bg-white text-center border rounded-lg shadow-md">
-        <thead class="bg-gray-800 text-white">
+        <thead class="bg-gray-200 border-gray-200 border">
             <tr>
                 <th class="py-2 px-4">name</th>
                 <th class="py-2 px-4">Description</th>

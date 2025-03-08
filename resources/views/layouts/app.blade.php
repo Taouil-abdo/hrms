@@ -78,6 +78,7 @@
        <livewire:layout.sidebar />
 
        {{ $slot }}
+       
     </div>
     @livewireScripts
 </body>
